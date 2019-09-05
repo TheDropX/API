@@ -14,7 +14,6 @@ export class Routes {
             })
         })
         
-        // Contact 
         app.route('/presences')
         .get((req: Request, res: Response, next: NextFunction) => {
             // middleware
