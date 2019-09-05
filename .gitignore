@@ -1,0 +1,8 @@
+/.vscode
+/node_modules
+/config
+/public
+
+package-lock.json
+*.map
+package.json
