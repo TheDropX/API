@@ -3,6 +3,7 @@ import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const PresencesSchema = new Schema({
+
     userID: { type: String, required: true },
     username: { type: String, required: true },
     userTag: { type: String, required: true },
@@ -13,4 +14,5 @@ export const PresencesSchema = new Schema({
     applicationID: { type: String, required: true },
     largeImage: { type: String, required: true },
     smallImage: { type: String, required: true }
+
 });
