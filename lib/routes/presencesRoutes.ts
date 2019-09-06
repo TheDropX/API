@@ -7,13 +7,6 @@ export class Routes {
     
     public routes(app): void {   
         
-        app.route('/test')
-        .get((req: Request, res: Response) => {            
-            res.status(200).send({
-                message: 'testing...'
-            })
-        })
-        
         app.route('/presences')
         .get((req: Request, res: Response, next: NextFunction) => {
             // middleware
