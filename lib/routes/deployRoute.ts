@@ -1,5 +1,3 @@
-import {Request, Response, NextFunction} from "express";
-
 var childProcess = require('child_process');
 var githubUsername = 'TheDropX'
 
