@@ -10,13 +10,6 @@ export class Routes {
     public presencesController: PresencesController = new PresencesController() 
     
     public routes(app): void {   
-
-        app.route('/webhooks/github')
-        .get((req: Request, res: Response) => {            
-            res.status(200).send({
-                message: 'Test.'
-            })
-        })
         
         app.route('/presences')
         .get((req: Request, res: Response, next: NextFunction) => {
@@ -33,6 +26,7 @@ export class Routes {
             console.log(`Request type: ${req.method}`);            
             next();                  
         }, this.presencesController.getPresenceByUserID)      
+        
         
         app.post("/webhooks/github", function (req, res) {
             var sender = req.body.sender;
