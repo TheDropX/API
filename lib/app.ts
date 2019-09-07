@@ -2,6 +2,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./routes/presencesRoutes";
 import { WebhooksRoutes } from "./routes/deployRoute";
+import { testingRoutes } from "./routes/testingRoute";
 import * as mongoose from "mongoose";
 
 class App {
@@ -9,6 +10,7 @@ class App {
     public app: express.Application;
     public routePrv: Routes = new Routes();
     public webhooks: WebhooksRoutes = new WebhooksRoutes();
+    public testing: testingRoutes = new testingRoutes();
     public mongoUrl: string = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@${process.env.MONGOIP}/discord`;
 
     constructor() {
