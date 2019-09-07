@@ -18,6 +18,7 @@ class App {
         this.config();
         this.routePrv.routes(this.app);
         this.webhooks.routes(this.app); 
+        this.testing.routes(this.app); 
         this.mongoSetup();
     }
 
