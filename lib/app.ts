@@ -1,18 +1,21 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./routes/presencesRoutes";
+import { WebhooksRoutes } from "./routes/deployRoute";
 import * as mongoose from "mongoose";
 
 class App {
 
     public app: express.Application;
     public routePrv: Routes = new Routes();
+    public webhooks: WebhooksRoutes = new WebhooksRoutes();
     public mongoUrl: string = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@${process.env.MONGOIP}/discord`;
 
     constructor() {
         this.app = express();
         this.config();        
         this.routePrv.routes(this.app);     
+        this.webhooks.routes(this.app);  
         this.mongoSetup();
     }
 

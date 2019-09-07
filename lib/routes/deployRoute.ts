@@ -2,7 +2,7 @@ var childProcess = require('child_process');
 var githubUsername = 'TheDropX'
 
 
-export class Routes { 
+export class WebhooksRoutes { 
     
     public routes(app): void {   
         
