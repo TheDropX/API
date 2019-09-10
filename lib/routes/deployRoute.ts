@@ -22,6 +22,7 @@ export class WebhooksRoutes {
             if(branch.indexOf('master') > -1 && sender.login === githubUsername || branch.indexOf('master') > -1 && sender.login === "FreaksMind"){
                 deployWebsite(res);
             }
+            console.log("Working.");
         })
         
         function deploy(res){
