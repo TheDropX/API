@@ -6,13 +6,6 @@ class Routes {
         this.presencesController = new presencesController_1.PresencesController();
     }
     routes(app) {
-        app.route('/')
-            .get((req, res) => {
-            res.status(200).send({
-                message: 'GET request successfulll!!!!'
-            });
-        });
-        // Contact 
         app.route('/presences')
             .get((req, res, next) => {
             // middleware
