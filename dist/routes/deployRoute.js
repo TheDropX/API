@@ -11,10 +11,10 @@ class WebhooksRoutes {
                 deploy(res);
             }
         });
-        app.post("/webhooks/github/website", function (req, res) {
+        app.post("/webhooks/website", function (req, res) {
             var sender = req.body.sender;
             var branch = req.body.ref;
-            if (branch.indexOf('master') > -1 && sender.login == githubUsername || branch.indexOf('master') > -1 && sender.login == "FreaksMind") {
+            if (branch.indexOf('master') > -1 && sender.login === githubUsername || branch.indexOf('master') > -1 && sender.login === "FreaksMind") {
                 deployWebsite(res);
             }
         });
