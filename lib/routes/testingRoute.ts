@@ -15,7 +15,7 @@ export class testingRoutes {
         .get((req: Request, res: Response) => {          
             res.setHeader('Access-Control-Allow-Origin', '*');  
             res.status(200).send({
-                roles: ["Moderator", "Ticket Manager", "Presence Developer", "Donator"]
+                roles: ["Moderator", "Ticket Manager", "Presence Developer", "Donator", "Proofreader", "Translator"]
             })
         })
         
