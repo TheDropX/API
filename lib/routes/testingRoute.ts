@@ -9,7 +9,14 @@ export class testingRoutes {
             res.status(200).send({
                 message: '15125'
             })
-        })     
+        })   
+        
+        app.route('/test2')
+        .get((req: Request, res: Response) => {            
+            res.status(200).send({
+                roles: ["Moderator", "Ticket Manager", "Presence Developer", "Donator"]
+            })
+        })
         
     }
 }
