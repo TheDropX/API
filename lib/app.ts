@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import { Routes } from "./routes/presencesRoutes";
 import { WebhooksRoutes } from "./routes/deployRoute";
 import { testingRoutes } from "./routes/testingRoute";
+import { aRoutes } from "./routes/announcementRoute";
 import * as mongoose from "mongoose";
 
 class App {
@@ -11,6 +12,7 @@ class App {
     public routePrv: Routes = new Routes();
     public webhooks: WebhooksRoutes = new WebhooksRoutes();
     public testing: testingRoutes = new testingRoutes();
+    public announcement: aRoutes = new aRoutes();
     public mongoUrl: string = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@${process.env.MONGOIP}/discord`;
 
     constructor() {
@@ -19,6 +21,7 @@ class App {
         this.routePrv.routes(this.app);
         this.webhooks.routes(this.app); 
         this.testing.routes(this.app); 
+        this.announcement.routes(this.app);
         this.mongoSetup();
     }
 

@@ -8,6 +8,21 @@ class testingRoutes {
                 message: '15125'
             });
         });
+        app.route('/test2')
+            .get((req, res) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.status(200).send({
+                roles: ["Moderator", "Ticket Manager", "Presence Developer", "Donator", "Proofreader", "Translator"]
+            });
+        });
+        app.route('/announcements')
+            .get((req, res) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.status(200).send({
+                title: "Attention!",
+                message: "A new update is available!"
+            });
+        });
     }
 }
 exports.testingRoutes = testingRoutes;
