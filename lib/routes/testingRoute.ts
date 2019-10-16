@@ -18,6 +18,15 @@ export class testingRoutes {
                 roles: ["Moderator", "Ticket Manager", "Presence Developer", "Donator", "Proofreader", "Translator"]
             })
         })
+
+        app.route('/announcements')
+        .get((req: Request, res: Response) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');  
+            res.status(200).send({
+                title: "Attention!",
+                message: "A new update is available!"
+            })
+        })
         
     }
 }
