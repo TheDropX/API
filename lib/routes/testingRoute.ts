@@ -24,7 +24,8 @@ export class testingRoutes {
             res.setHeader('Access-Control-Allow-Origin', '*');  
             res.status(200).send({
                 title: "Attention!",
-                message: "A new update is available!"
+                message: "A new update is available!",
+                version: "1.0.5"
             })
         })
         
