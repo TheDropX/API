@@ -6,6 +6,7 @@ const presencesRoutes_1 = require("./routes/presencesRoutes");
 const deployRoute_1 = require("./routes/deployRoute");
 const testingRoute_1 = require("./routes/testingRoute");
 const announcementRoute_1 = require("./routes/announcementRoute");
+const busRoute_1 = require("./routes/busRoute");
 const mongoose = require("mongoose");
 class App {
     constructor() {
@@ -13,6 +14,7 @@ class App {
         this.webhooks = new deployRoute_1.WebhooksRoutes();
         this.testing = new testingRoute_1.testingRoutes();
         this.announcement = new announcementRoute_1.aRoutes();
+        this.buses = new busRoute_1.busRoutes();
         this.mongoUrl = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@${process.env.MONGOIP}/discord`;
         this.app = express();
         this.config();
@@ -20,6 +22,7 @@ class App {
         this.webhooks.routes(this.app);
         this.testing.routes(this.app);
         this.announcement.routes(this.app);
+        this.buses.routes(this.app);
         this.mongoSetup();
     }
     config() {
