@@ -33,6 +33,15 @@ export class WebhooksRoutes {
             }
         })
         
+        app.post("/webhooks/freaksmind", function (req, res) {
+            var sender = req.body.sender;
+            var branch = req.body.ref;
+        
+            if(branch.indexOf('master') > -1 && sender.login === "FreaksMind"){
+                deployFreaksMind(res);
+            }
+        })
+        
         function deploy(res){
             childProcess.exec('cd /home/alex/Webhook && ./DeployNow.sh', function(err, stdout, stderr){
                 if (err) {
@@ -55,6 +64,16 @@ export class WebhooksRoutes {
 
         function deployBeta(res) {
             childProcess.exec('cd /home/alex/Webhook && ./DeployBeta.sh', function(err, stdout, stderr){
+                if (err) {
+                    console.error(err);
+                    return res.send(500);
+                }
+                res.send(200);
+            });
+        }
+        
+        function deployFreaksMind(res) {
+            childProcess.exec('cd /home/alex/Webhook && ./deployFreaks.sh', function(err, stdout, stderr){
                 if (err) {
                     console.error(err);
                     return res.send(500);
